@@ -1,20 +1,24 @@
 <template>
-    <div id="app">
+    <div>
         <v-header></v-header>
         <div class="tab">
             <div class="tab-item">
-                商品
+                <router-link to="{path: '/goods'}">
+                    商品
+                </router-link>
             </div>
             <div class="tab-item">
-                评论
+                <router-link to="{path: '/ratings'}">
+                    评论
+                </router-link>
             </div>
             <div class="tab-item">
-                商家
+                <router-link to="{path:'/seller'}">
+                    商家
+                </router-link>
             </div>
         </div>
-        <div class="content">
-            content
-        </div>
+        <router-view></router-view>
 
     </div>
 </template>
@@ -31,14 +35,14 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-    #app
-        .tab
-            display: flex
-            width: 100%
-            height: 40px
-            line-height: 40px
-            .tab-item
-                flex: 1
-                text-align: center
+    .tab
+        display: flex
+        width: 100%
+        height: 40px
+        line-height: 40px
+        .tab-item
+            flex: 1
+            text-align: center
+            color: red
 
 </style>
