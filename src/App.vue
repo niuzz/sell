@@ -3,17 +3,17 @@
         <v-header></v-header>
         <div class="tab">
             <div class="tab-item">
-                <router-link to="{path: '/goods'}">
+                <router-link to="/goods">
                     商品
                 </router-link>
             </div>
             <div class="tab-item">
-                <router-link to="{path: '/ratings'}">
+                <router-link to="/ratings">
                     评论
                 </router-link>
             </div>
             <div class="tab-item">
-                <router-link to="{path:'/seller'}">
+                <router-link to="/seller">
                     商家
                 </router-link>
             </div>
@@ -43,6 +43,11 @@
         .tab-item
             flex: 1
             text-align: center
-            color: red
+            & > a
+                display: block
+                font-size: 14px
+                color: rgb(77, 85, 93)
+                &.active
+                    color: rgb(240,20,20)
 
 </style>

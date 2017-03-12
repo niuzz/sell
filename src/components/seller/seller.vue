@@ -1,4 +1,7 @@
 <template>
+    <div>
+        I'm seller
+    </div>
 
 </template>
 

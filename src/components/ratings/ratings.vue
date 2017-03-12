@@ -1,4 +1,7 @@
 <template>
+    <div>
+        I'm ratings
+    </div>
 
 </template>
 
