@@ -95,5 +95,7 @@
                     .text
                         line-height: 12px
                         font-size: 10px
+                .support-count
+
 
 </style>
