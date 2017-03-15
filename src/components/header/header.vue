@@ -35,7 +35,7 @@
                 <div class="detail-main">
                     <h1 class="name">{{seller.name}}</h1>
                     <div class="star-wrapper">
-
+                        <star :size="48" :score="seller.score"></star>
                     </div>
                     <div class="title">
                         <div class="line"></div>
@@ -66,6 +66,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+    import star from '../../components/star/star';
     export default {
         props: {
             seller: {
@@ -87,6 +88,9 @@
         },
         created () {
             this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special'];
+        },
+        components: {
+            star
         }
     };
 
@@ -244,36 +248,36 @@
                             font-weight: 700
                             font-size: 14px
 
-                        .supports
-                            width:80%
-                            margin:0 auto
-                            .support-item
-                                padding:0 12px
-                                margin-bottom: 12px
-                                font-size:0
-                                &.last-child
-                                    margin-bottom:0
-                                .icon
-                                    display: inline-block
-                                    width: 16px
-                                    height:16px
-                                    vertical-align: top
-                                    margin-right: 6px
-                                    background-size: 16px 16px
-                                    background-repeat: no-repeat
-                                    &.decrease
-                                        bg-image('decrease_2')
-                                    &.discount
-                                        bg-image('discount_2')
-                                    &.guarantee
-                                        bg-image('guarantee_2')
-                                    &.invoice
-                                        bg-image('invoice_2')
-                                    &.special
-                                        bg-image('special_2')
-                                    .text
-                                        line-height: 16px
-                                        font-size: 12px
+                    .supports
+                        width:80%
+                        margin:0 auto
+                        .support-item
+                            padding:0 12px
+                            margin-bottom: 12px
+                            font-size:0
+                            &.last-child
+                                margin-bottom:0
+                            .icon
+                                display: inline-block
+                                width: 16px
+                                height:16px
+                                vertical-align: top
+                                margin-right: 6px
+                                background-size: 16px 16px
+                                background-repeat: no-repeat
+                                &.decrease
+                                    bg-image('decrease_2')
+                                &.discount
+                                    bg-image('discount_2')
+                                &.guarantee
+                                    bg-image('guarantee_2')
+                                &.invoice
+                                    bg-image('invoice_2')
+                                &.special
+                                    bg-image('special_2')
+                            .text
+                                line-height: 16px
+                                font-size: 12px
                     .bulletin
                         width: 80%
                         margin:0 auto
