@@ -17,20 +17,20 @@
                     <span class="icon" :class="classMap[seller.supports[0].type]"></span>
                     <span class="text"> {{ seller.supports[0].description }} </span>
                 </div>
-                <div v-if="seller.supports" class="support-count">
+                <div v-if="seller.supports" class="support-count" @click="showDetail">
                     <span class="count">{{seller.supports.length}}个</span>
                     <i class="icon-keyboard_arrow_right"></i>
                 </div>
             </div>
         </div>
-        <div class="bulletin-wraper">
+        <div class="bulletin-wraper" @click="showDetail">
             <span class="bulletin-title"></span><span class="bulletin-text">{{seller.bulletin}}</span>
             <i class="icon-keyboard_arrow_right"></i>
         </div>
         <div class="background">
             <img :src="seller.avatar" width="100%" height="100%">
         </div>
-        <div class="detail">
+        <div v-show="detailShow" class="detail">
             <div class="detail-wrapper clearfix">
                 <div class="detail-main">
                     <h1 class="name">{{seller.name}}</h1>
@@ -79,12 +79,12 @@
             };
         },
         methods: {
-          showDetail () {
-              this.detailShow = true;
-          },
-          hideDetail () {
-              this.detailShow = false;
-          }
+            showDetail () {
+                this.detailShow = true;
+            },
+            hideDetail () {
+                this.detailShow = false;
+            }
         },
         created () {
             this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special'];
@@ -180,7 +180,7 @@
             white-space: nowrap
             overflow: hidden
             text-overflow: ellipsis
-            background: rgba(7,17,27,0.2)
+            background: rgba(7, 17, 27, 0.2)
             .bulletin-title
                 display: inline-block
                 vertical-align: top
@@ -215,7 +215,7 @@
             left: 0
             width: 100%
             height: 100%
-            overflow : auto
+            overflow: auto
             background-filter: blur(10px)
             opacity: 1
             background: rgba(7, 17, 27, 0.8)
@@ -228,39 +228,39 @@
                     .name
                         line-height: 16px
                         text-align: center
-                        font-size:16px
+                        font-size: 16px
                         font-weight: 700
                     .star-wrapper
                         margin-top: 18px
-                        padding:2px 0
+                        padding: 2px 0
                         text-align: center
                     .title
                         display: flex
-                        width:80%
-                        margin:28px auto 24px auto
+                        width: 80%
+                        margin: 28px auto 24px auto
                         .line
-                            flex:1
+                            flex: 1
                             position: relative
                             top: -6px
-                            border-bottom:1px solid rgba(255,255,255,0.2)
+                            border-bottom: 1px solid rgba(255, 255, 255, 0.2)
                         .text
-                            padding:0 12px
+                            padding: 0 12px
                             font-weight: 700
                             font-size: 14px
 
                     .supports
-                        width:80%
-                        margin:0 auto
+                        width: 80%
+                        margin: 0 auto
                         .support-item
-                            padding:0 12px
+                            padding: 0 12px
                             margin-bottom: 12px
-                            font-size:0
+                            font-size: 0
                             &.last-child
-                                margin-bottom:0
+                                margin-bottom: 0
                             .icon
                                 display: inline-block
                                 width: 16px
-                                height:16px
+                                height: 16px
                                 vertical-align: top
                                 margin-right: 6px
                                 background-size: 16px 16px
@@ -280,7 +280,7 @@
                                 font-size: 12px
                     .bulletin
                         width: 80%
-                        margin:0 auto
+                        margin: 0 auto
                         .content
                             padding: 0 12px
                             line-height: 24px
