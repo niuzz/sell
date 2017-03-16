@@ -28,7 +28,7 @@
             flex: 0 0 80px
             width: 80px
             background: #f3f5f7
-        .foods-wraper
-            flex:1
+        .foods-wrapper
+            flex: 1
 
 </style>
