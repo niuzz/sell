@@ -63,6 +63,7 @@
                 width: 56px
                 padding: 0 12px
                 line-height: 14px
+                font-size: 12px
         .foods-wrapper
             flex: 1
 
