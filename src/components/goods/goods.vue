@@ -1,8 +1,9 @@
 <template>
     <div class="goods">
-        <div class="menu-wrapper">
+        <div class="menu-wrapper" rel="menuWrapper">
             <ul>
-                <li v-for="(item,index) in goods" class="menu-item" :class="{'current':currentIndex===index}" @click="selectMenu(index, $event)">
+                <li v-for="(item,index) in goods" class="menu-item" :class="{'current':currentIndex===index}"
+                    @click="selectMenu(index, $event)">
                    <span class="text">
                        <span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span>{{item.name}}
                    </span>
@@ -10,7 +11,7 @@
             </ul>
 
         </div>
-        <div class="foods-wrapper">
+        <div class="foods-wrapper" rel="foodsWrapper">
             <ul>
                 <li v-for="item in goods" class="food-list">
                     <h1 class="title">
@@ -54,7 +55,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-    // import BScroll from 'better-scroll';
+    import BScroll from 'better-scroll';
 
     const ERR_OK = 0;
     export default {
@@ -100,6 +101,18 @@
                 let foodList = this.$refs.foodList;
                 let el = foodList[index];
                 this.foodScroll.scrollToElement(el, 300);
+            },
+            _initScroll () {
+                this.meunScroll = new BScroll(this.$refs.menuWrapper, {
+                    click: true
+                });
+                this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
+                    click: true,
+                    probeType: 3
+                });
+                this.foodsScroll.on('scroll', (pos) => {
+                    this.scrollY = Math.abs(Math.round(pos.y));
+                });
             }
         }
     };
@@ -173,7 +186,7 @@
                 padding-bottom: 18px
                 &:last-child
                     border-none()
-                    margin-bottom:0
+                    margin-bottom: 0
                 .icon
                     flex: 0 0 57px
                     margin-right: 10px
@@ -194,7 +207,7 @@
                     .count
                         margin-right: 12px
                 .price
-                    font-weight:700
+                    font-weight: 700
                     line-height: 24px
                     .now
                         margin-right: 8px
