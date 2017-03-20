@@ -54,6 +54,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+    // import BScroll from 'better-scroll';
 
     const ERR_OK = 0;
     export default {
@@ -64,8 +65,23 @@
         },
         data () {
             return {
-                goods: []
+                goods: [],
+                listHeight: [],
+                scrollY: 0,
+                selectedFood: {}
             };
+        },
+        computed: {
+            currentIndex () {
+                for (let i = 0; i < this.listHeight.length; i++) {
+                    let height1 = this.listHeight[i];
+                    let height2 = this.listHeight[i + 1];
+                    if (!height2 || (this.scrollY >= height1 && this.scrollY < height2)) {
+                        return i;
+                    }
+                }
+                return 0;
+            }
         },
         created () {
             this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
