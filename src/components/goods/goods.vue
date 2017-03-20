@@ -114,7 +114,7 @@
                 }
                 let foodList = this.$refs.foodList;
                 let el = foodList[index];
-                this.foodScroll.scrollToElement(el, 300);
+                this.foodsScroll.scrollToElement(el, 300);
             },
             selectFood (food, event) {
                 if (!event._constructed) {
