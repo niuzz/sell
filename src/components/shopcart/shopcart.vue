@@ -24,6 +24,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+    import cartcontrol from 'components/cartcontrol/cartcontrol';
     export default {
         props: {
             selectFoods: {
