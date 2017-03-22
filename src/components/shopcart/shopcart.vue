@@ -4,12 +4,12 @@
             <div class="content">
                 <div class="content-left">
                     <div class="logo-wrapper">
-                        <div class="logo">
-                            <i class="icon-shopping_cart"></i>
+                        <div class="logo" :class="{'highlight':totalCount>0}">
+                            <i class="icon-shopping_cart" :class="{'highlight':totalCount>0}"></i>
                         </div>
                         <div class="num" v-show="totalCount>0">{{totalCount}}</div>
                     </div>
-                    <div class="price">￥{{totalPrice}}</div>
+                    <div class="price" :class="{'highlight':totalPrice>0}">￥{{totalPrice}}</div>
                     <div class="desc">另需配送费￥{{deliveryPrice}}元</div>
                 </div>
                 <div class="content-right">
@@ -48,7 +48,7 @@
         },
         computed: {
             totalPrice () {
-              let total = 0;
+                let total = 0;
                 this.selectFoods.forEach((food) => {
                     total += food.price * food.count;
                 });
@@ -66,7 +66,7 @@
                     return `￥${this.minPrice}元起送`;
                 } else if (this.totalPrice < this.minPrice) {
                     let diff = this.minPrice - this.totalPrice;
-                    return `还差${diff}元起送`;
+                    return `还差￥${diff}元起送`;
                 } else {
                     return '去结算';
                 }
