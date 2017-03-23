@@ -41,7 +41,7 @@
                                     <span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
                                 </div>
                                 <div class="cartcontrol-wrapper">
-                                    <cartcontrol :food="food"></cartcontrol>
+                                    <cartcontrol @add="addFood":food="food"></cartcontrol>
                                 </div>
                             </div>
                         </li>
@@ -232,6 +232,7 @@
                 display: flex
                 margin: 18px
                 padding-bottom: 18px
+                border-1px(rgba(7,17,27,0.1))
                 &:last-child
                     border-none()
                     margin-bottom: 0
@@ -240,36 +241,36 @@
                     margin-right: 10px
                 .content
                     flex: 1
-                .name
-                    margin: 2px 0 8px 0
-                    height: 14px
-                    line-height: 14px
-                    font-size: 14px
-                    color: rgb(7, 17, 27)
-                .desc, .extra
-                    line-height: 10px
-                    font-size: 10px
-                    color: rgb(147, 153, 159)
-                .desc
-                    line-height: 12px
-                    margin-bottom: 8px
-                .extra
-                    .count
-                        margin-right: 12px
-                .price
-                    font-weight: 700
-                    line-height: 24px
-                    .now
-                        margin-right: 8px
+                    .name
+                        margin: 2px 0 8px 0
+                        height: 14px
+                        line-height: 14px
                         font-size: 14px
-                        color: rgb(147, 153, 159)
-                    .old
-                        text-decoration: line-through
+                        color: rgb(7, 17, 27)
+                    .desc, .extra
+                        line-height: 10px
                         font-size: 10px
                         color: rgb(147, 153, 159)
-                .cartcontrol-wrapper
-                    position: absolute
-                    right: 0
-                    bottom: 12px
+                    .desc
+                        line-height: 12px
+                        margin-bottom: 8px
+                    .extra
+                        .count
+                            margin-right: 12px
+                    .price
+                        font-weight: 700
+                        line-height: 24px
+                        .now
+                            margin-right: 8px
+                            font-size: 14px
+                            color: rgb(147, 153, 159)
+                        .old
+                            text-decoration: line-through
+                            font-size: 10px
+                            color: rgb(147, 153, 159)
+                    .cartcontrol-wrapper
+                        position: absolute
+                        right: 0
+                        bottom: 12px
 
 </style>
