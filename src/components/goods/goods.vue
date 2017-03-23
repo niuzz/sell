@@ -126,6 +126,14 @@
                 this.selectedFood = food;
                 this.$refs.food.show();
             },
+            addFood (target) {
+                this._drop(target);
+            },
+            _drop (target) {
+                this.$nextTick(() => {
+                    this.$refs.shopcart.drop(target);
+                });
+            },
             _initScroll () {
                 this.meunScroll = new BScroll(this.$refs.menuWrapper, {
                     click: true
@@ -231,7 +239,9 @@
                     flex: 0 0 57px
                     margin-right: 10px
                 .content
-                    margin: 2px o0 8px 0
+                    flex: 1
+                .name
+                    margin: 2px 0 8px 0
                     height: 14px
                     line-height: 14px
                     font-size: 14px
