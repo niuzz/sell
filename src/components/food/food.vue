@@ -20,6 +20,7 @@ export default {
     methods: {
         show () {
             this.showFlag = true;
+            console.log(111);
         }
     }
 };
