@@ -1,10 +1,10 @@
 <template>
-    <div v-show="showFlag" class="food">
+    <div v-show="showFlag" class="food" ref="food">
         <div class="food-content">
             <div class="image-header">
                 <img :src="food.image">
                 <div class="back" @click="hide">
-                    <i class="icon-arrow_left"></i>
+                    <i class="icon-arrow_lift"></i>
                 </div>
             </div>
         </div>
@@ -28,6 +28,7 @@ export default {
     methods: {
         show () {
             this.showFlag = true;
+            console.log(this.food);
         },
         hide () {
             this.showFlag = false;
@@ -51,7 +52,7 @@ export default {
             position: relative
             width: 100%
             height: 0
-            position-top: 100%
+            padding-top: 100%
             img
                 position: absolute
                 top: 0
@@ -62,7 +63,7 @@ export default {
                 position: absolute
                 top: 10px
                 left: 0
-                .icon-arrow_left
+                .icon-arrow_lift
                     display: block
                     padding: 10px
                     font-size: 20px;
