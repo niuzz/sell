@@ -14,9 +14,16 @@
                     <span class="rating">好评率{{food.rating}}%</span>
                 </div>
                 <div class="price">
-                    <span class="now">￥{{food.price}}</span><span class="old"
-                                                                  v-show="food.oldPrice">￥{{food.oldPrice}}</span>
+                    <span class="now">￥{{food.price}}</span><span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
                 </div>
+                <div class="cartcontrol-wrapper">
+                    <cartcontrol @add="addFood" :food="food"></cartcontrol>
+                </div>
+                <transition name="fade">
+                    <div @click.stop.prevent = "addFirst" class="buy" v-show="!food.count || food.count === 0">
+                        加入购物车
+                    </div>
+                </transition>
             </div>
         </div>
 
@@ -27,6 +34,7 @@
 <script type="text/ecmascript-6">
     import BScroll from 'better-scroll';
     import Vue from 'vue';
+    import cartcontrol from 'components/cartcontrol/cartcontrol';
     export default {
         props: {
             food: {
@@ -41,11 +49,32 @@
         methods: {
             show () {
                 this.showFlag = true;
-                console.log(this.food);
+                this.$nextTick(() => {
+                    if (!this.scroll) {
+                        this.scroll = new BScroll(this.$refs.food, {
+                           click: true
+                        });
+                    } else {
+                        this.scroll.refresh();
+                    }
+                });
             },
             hide () {
                 this.showFlag = false;
+            },
+            addFirst (event) {
+                if (!event._constructed) {
+                    return;
+                }
+                this.$emit('add', event.target);
+                Vue.set(this.food, 'count', 1);
+            },
+            addFood (target) {
+                this.$emit('add', target);
             }
+        },
+        components: {
+            cartcontrol
         }
     };
 
