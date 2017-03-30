@@ -14,7 +14,8 @@
                     <span class="rating">好评率{{food.rating}}%</span>
                 </div>
                 <div class="price">
-                    <span class="now">￥{{food.price}}</span><span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
+                    <span class="now">￥{{food.price}}</span><span class="old"
+                                                                  v-show="food.oldPrice">￥{{food.oldPrice}}</span>
                 </div>
             </div>
         </div>
@@ -24,27 +25,29 @@
 </template>
 
 <script type="text/ecmascript-6">
-export default {
-    props: {
-        food: {
-           type: Object
-        }
-    },
-    data () {
-        return {
-            showFlag: false
-        };
-    },
-    methods: {
-        show () {
-            this.showFlag = true;
-            console.log(this.food);
+    import BScroll from 'better-scroll';
+    import Vue from 'vue';
+    export default {
+        props: {
+            food: {
+                type: Object
+            }
         },
-        hide () {
-            this.showFlag = false;
+        data () {
+            return {
+                showFlag: false
+            };
+        },
+        methods: {
+            show () {
+                this.showFlag = true;
+                console.log(this.food);
+            },
+            hide () {
+                this.showFlag = false;
+            }
         }
-    }
-};
+    };
 
 </script>
 
@@ -78,7 +81,6 @@ export default {
                     padding: 10px
                     font-size: 20px;
                     color: #ffffff
-
 
         .content
             position: relative
