@@ -25,6 +25,7 @@
                     </div>
                 </transition>
             </div>
+            <split></split>
         </div>
 
     </div>
@@ -35,6 +36,7 @@
     import BScroll from 'better-scroll';
     import Vue from 'vue';
     import cartcontrol from 'components/cartcontrol/cartcontrol';
+    import split from 'components/split/split';
     export default {
         props: {
             food: {
@@ -74,7 +76,8 @@
             }
         },
         components: {
-            cartcontrol
+            cartcontrol,
+            split
         }
     };
 
@@ -141,5 +144,28 @@
                     text-decoration: line-through
                     font-size: 10px
                     color: rgb(147, 153, 159)
+            .cartcontrol-wrapper
+                position: absolute
+                right: 12px
+                bottom: 12px
+            .buy
+                position: absolute
+                right: 18px
+                bottom: 18px
+                z-index: 10px
+                height: 24px
+                line-height: 24px
+                padding: 0 12px
+                box-sizing: border-box
+                border-radius: 12px
+                font-size: 10px
+                color: #fff
+                background: rgb(0, 160, 220)
+                opacity: 1
+                &.fade-enter-active, &.fade-leave-active
+                    transition: all 0.2s
+                &.fade-enter, &.fade-leave-active
+                    opacity: 0
+                    z-index: -1
 
 </style>
