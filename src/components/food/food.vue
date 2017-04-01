@@ -31,6 +31,12 @@
                 <p class="text">{{food.info}}</p>
             </div>
             <split></split>
+            <div class="rating">
+                <h1 class="title">商品评价</h1>
+                <div class="rating-wrapper">
+
+                </div>
+            </div>
         </div>
 
     </div>
@@ -184,13 +190,26 @@
                 padding: 0 8px
                 font-size: 12px
                 color: rgb(77, 85, 93)
-
-
-        .rating-wrapper
-            padding: 0 18px
-            .rating-item
-                position: relative
-                padding: 16px 0
-                border-1px(rgba(7,17,27,0.1))
+        .rating
+            padding-top: 18px
+            .title
+                line-height: 14px
+                margin-left: 18px
+                font-size: 14px
+                color: rgb(7, 17, 27)
+            .rating-wrapper
+                padding: 0 18px
+                .rating-item
+                    position: relative
+                    padding: 16px 0
+                    border-1px(rgba(7,17,27,0.1))
+                    .user
+                        position: absolute
+                        right: 0
+                        top: 16px
+                        line-height: 12px
+                        font-size: 0
+                        .project-name
+                            display: inline-block
 
 </style>
