@@ -1,11 +1,17 @@
 <template>
-    <div class="ratings">
+    <div class="ratings" ref="ratings">
         <div class="ratings-content">
             <div class="overview">
                 <div class="overview-left">
-                    <span>
-                        {{seller.foodScore}}
-                    </span>
+                    <h1 class="score">
+                        {{seller.score}}
+                    </h1>
+                    <div class="title">
+                        综合评分
+                    </div>
+                    <div class="rank">
+                        高于周边商家{{seller.rankRate}}%
+                    </div>
                 </div>
                 <div class="overview-right">
                     <div class="score-wrapper">
@@ -60,6 +66,7 @@
     import star from 'components/star/star';
     import ratingselect from 'components/ratingselect/ratingselect';
     import split from 'components/split/split';
+
     const ALL = 2;
     const ERR_OK = 0;
     export default{
@@ -72,7 +79,7 @@
             return {
                 ratings: [],
                 selectType: ALL,
-                onluContent: true
+                onlyContent: true
             };
         },
         created () {
@@ -110,18 +117,18 @@
                 this.$nextTick(() => {
                     this.scroll.refresh();
                 });
-            },
-            filters: {
-                formatDate (time) {
-                    let date = new Date(time);
-                    return formatDate(date, 'yyyy-MM-dd hh:mm');
-                }
-            },
-            components: {
-                star,
-                split,
-                ratingselect
             }
+        },
+        filters: {
+            formatDate (time) {
+                let date = new Date(time);
+                return formatDate(date, 'yyyy-MM-dd hh:mm');
+            }
+        },
+        components: {
+            star,
+            split,
+            ratingselect
         }
     };
 

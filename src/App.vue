@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-header :seller = "seller"></v-header>
+        <v-header :seller="seller"></v-header>
         <div class="tab border-1px">
             <div class="tab-item">
                 <router-link to="/goods">
@@ -18,8 +18,9 @@
                 </router-link>
             </div>
         </div>
-        <router-view :seller="seller"></router-view>
-
+        <keep-alive>
+            <router-view :seller="seller"></router-view>
+        </keep-alive>
     </div>
 </template>
 
@@ -30,17 +31,17 @@
 
     export default {
         data () {
-          return {
-              seller: {}
-          };
+            return {
+                seller: {}
+            };
         },
         created () {
-          this.$http.get('/api/seller').then((response) => {
-              response = response.body;
-              if (response.errno === ERR_OK) {
-                  this.seller = response.data;
-              }
-          });
+            this.$http.get('/api/seller').then((response) => {
+                response = response.body;
+                if (response.errno === ERR_OK) {
+                    this.seller = response.data;
+                }
+            });
         },
         components: {
             'v-header': header
@@ -56,7 +57,7 @@
         width: 100%
         height: 40px
         line-height: 40px
-        border-1px(rgba(07,17,27,0.1))
+        border-1px(rgba(07, 17, 27, 0.1))
         .tab-item
             flex: 1
             text-align: center
@@ -65,5 +66,5 @@
                 font-size: 14px
                 color: rgb(77, 85, 93)
                 &.active
-                    color: rgb(240,20,20)
+                    color: rgb(240, 20, 20)
 </style>
